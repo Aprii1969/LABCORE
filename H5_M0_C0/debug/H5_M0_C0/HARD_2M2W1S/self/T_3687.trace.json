@@ -1,0 +1,138 @@
+{
+  "template_id": "H5_M0_C0",
+  "stage": "self",
+  "profile_id": "HARD_2M2W1S",
+  "draw_id": 3687,
+  "metrics_file": "rolling\\draw_metrics\\draw_metrics_3686.json",
+  "runtime_mode": "MODE_B",
+  "quota": 9,
+  "cover_tickets": 0,
+  "generated": 9,
+  "tickets": [
+    [
+      18,
+      25,
+      28,
+      29,
+      40
+    ],
+    [
+      13,
+      18,
+      25,
+      28,
+      29
+    ],
+    [
+      18,
+      22,
+      28,
+      29,
+      40
+    ],
+    [
+      18,
+      23,
+      25,
+      28,
+      40
+    ],
+    [
+      13,
+      18,
+      23,
+      25,
+      28
+    ],
+    [
+      3,
+      18,
+      22,
+      28,
+      40
+    ],
+    [
+      3,
+      6,
+      10,
+      22,
+      29
+    ],
+    [
+      5,
+      6,
+      18,
+      28,
+      29
+    ],
+    [
+      11,
+      18,
+      25,
+      28,
+      29
+    ]
+  ],
+  "detector": {
+    "mode": "MODE_B",
+    "mode_scores": {
+      "MODE_A": 1.0315125577474389,
+      "MODE_B": 2.2118162368802188,
+      "MODE_C": 2.1450555820726445
+    },
+    "mode_weights": {
+      "MODE_A": 4.3594892247361086e-10,
+      "MODE_B": 0.5145521175455229,
+      "MODE_C": 0.4854478820185282
+    },
+    "confidence": 0.06676065480757432,
+    "winner_margin": 0.06676065480757432,
+    "cover_plan": [
+      "topology_core",
+      "topology_core",
+      "triad_closure",
+      "dense_bridge"
+    ],
+    "features": {
+      "top_k": 20,
+      "anchor_mass": 0.2930926341754927,
+      "peak_ratio": 1.6767189165403071,
+      "next_mean": 0.5145456068571582,
+      "entropy_mean": 1.127445223209904,
+      "entropy_inverse": 0.4700473549637124,
+      "density_mean": 0.7194444529712201,
+      "coef_mean": 0.893,
+      "component_1_size": 14,
+      "component_2_size": 1,
+      "component_balance": 0.07142857142857142,
+      "cross_ratio": 0.12239604428455625,
+      "dominant_groups_differ": true,
+      "dominant_group_1": "stable.stable_weak",
+      "dominant_group_2": "stable.stable_medium",
+      "fresh_m": 1,
+      "due_m": 3,
+      "tail_w": 9,
+      "hotlowp_w": 2,
+      "split_hint_c": true,
+      "strong_edge_thr": 0.5483967803589367
+    },
+    "guards": {
+      "guard_A": false,
+      "guard_B": false,
+      "guard_C": false,
+      "split_hint_C": true
+    },
+    "triggered_rule": "argmax_scores",
+    "resolver_path": [
+      "raw_scores",
+      "split_hint_C_bonus",
+      "resolver_argmax"
+    ]
+  },
+  "profile_meta": {
+    "quota": 9,
+    "runtime_mode": "MODE_B",
+    "skipped": false,
+    "reason": null
+  }
+}

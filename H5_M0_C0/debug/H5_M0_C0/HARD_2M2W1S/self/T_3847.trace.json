@@ -1,0 +1,137 @@
+{
+  "template_id": "H5_M0_C0",
+  "stage": "self",
+  "profile_id": "HARD_2M2W1S",
+  "draw_id": 3847,
+  "metrics_file": "rolling\\draw_metrics\\draw_metrics_3846.json",
+  "runtime_mode": "MODE_B",
+  "quota": 9,
+  "cover_tickets": 0,
+  "generated": 9,
+  "tickets": [
+    [
+      3,
+      4,
+      11,
+      23,
+      40
+    ],
+    [
+      3,
+      4,
+      11,
+      32,
+      40
+    ],
+    [
+      4,
+      11,
+      39,
+      40,
+      41
+    ],
+    [
+      2,
+      4,
+      11,
+      32,
+      40
+    ],
+    [
+      4,
+      11,
+      24,
+      32,
+      40
+    ],
+    [
+      2,
+      4,
+      11,
+      23,
+      40
+    ],
+    [
+      4,
+      11,
+      32,
+      40,
+      41
+    ],
+    [
+      3,
+      4,
+      11,
+      39,
+      40
+    ],
+    [
+      4,
+      11,
+      23,
+      40,
+      41
+    ]
+  ],
+  "detector": {
+    "mode": "MODE_B",
+    "mode_scores": {
+      "MODE_A": 0.9208043929954975,
+      "MODE_B": 2.2008211004822567,
+      "MODE_C": 1.6525242258879473
+    },
+    "mode_weights": {
+      "MODE_A": 4.970829820092907e-10,
+      "MODE_B": 0.6362745224763152,
+      "MODE_C": 0.36372547702660174
+    },
+    "confidence": 0.5482968745943093,
+    "winner_margin": 0.5482968745943093,
+    "cover_plan": [
+      "topology_core",
+      "topology_core",
+      "triad_closure",
+      "dense_bridge"
+    ],
+    "features": {
+      "top_k": 20,
+      "anchor_mass": 0.2873180666570888,
+      "peak_ratio": 1.5866157990660377,
+      "next_mean": 0.5104678188161985,
+      "entropy_mean": 1.1265833042855082,
+      "entropy_inverse": 0.47023786840834864,
+      "density_mean": 0.8325000025331974,
+      "coef_mean": 0.891,
+      "component_1_size": 10,
+      "component_2_size": 3,
+      "component_balance": 0.3,
+      "cross_ratio": 0.24045311820195486,
+      "dominant_groups_differ": true,
+      "dominant_group_1": "stable.stable_weak",
+      "dominant_group_2": "stable.stable_medium",
+      "fresh_m": 3,
+      "due_m": 4,
+      "tail_w": 7,
+      "hotlowp_w": 1,
+      "split_hint_c": false,
+      "strong_edge_thr": 0.47014979989002703
+    },
+    "guards": {
+      "guard_A": false,
+      "guard_B": false,
+      "guard_C": false,
+      "split_hint_C": false
+    },
+    "triggered_rule": "argmax_scores",
+    "resolver_path": [
+      "raw_scores",
+      "resolver_argmax"
+    ]
+  },
+  "profile_meta": {
+    "quota": 9,
+    "runtime_mode": "MODE_B",
+    "skipped": false,
+    "reason": null
+  }
+}

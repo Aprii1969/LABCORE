@@ -1,0 +1,496 @@
+{
+  "draw_id": 4018,
+  "winners": [
+    21,
+    23,
+    30,
+    32,
+    40
+  ],
+  "template_id": "H5_M0_C0",
+  "rules": {
+    "H": 5,
+    "M": 0,
+    "C": 0
+  },
+  "profiles_draw_id": 4017,
+  "features_are_Tminus1": true,
+  "metrics_schema": "v3_full_strength_trans_state_topo_v1",
+  "profiles": [
+    {
+      "number": 21,
+      "base_type": "H",
+      "zone_type": "STABLE",
+      "zone_level": "medium",
+      "top_pairs": [
+        {
+          "n": 19,
+          "w": 0.9176746933450008
+        },
+        {
+          "n": 31,
+          "w": 0.9176746933450008
+        },
+        {
+          "n": 33,
+          "w": 0.7383373534286226
+        },
+        {
+          "n": 23,
+          "w": 0.6952407741125279
+        },
+        {
+          "n": 42,
+          "w": 0.551418788245685
+        },
+        {
+          "n": 20,
+          "w": 0.5453914943960244
+        },
+        {
+          "n": 24,
+          "w": 0.4588373466725004
+        },
+        {
+          "n": 34,
+          "w": 0.4588373466725004
+        },
+        {
+          "n": 30,
+          "w": 0.44889325357805543
+        },
+        {
+          "n": 6,
+          "w": 0.3711415341921609
+        }
+      ],
+      "gap_last": 2,
+      "freq_10": 2,
+      "freq_30": 5,
+      "freq_60": 8,
+      "I60": 8,
+      "gap2_60": 12,
+      "pair_strength": 0.4000000059604645,
+      "triad_strength": 0.0833333358168602,
+      "glue_index": 0.3666666746139526,
+      "state_id": "stable.stable_medium.g2_3.c0",
+      "state_p_hit": 0.12194912846857164,
+      "state_lift": 1.0975421562171448,
+      "state_E_next": 0.12189348838247116,
+      "state_id_next": "stable.stable_medium.g2_3.c0",
+      "state_next_p": 0.3986450523605936,
+      "transition_next_top": [
+        {
+          "state_id": "stable.stable_medium.g2_3.c0",
+          "p": 0.3986450523605936
+        },
+        {
+          "state_id": "stable.stable_medium.g4_5.c0",
+          "p": 0.3485263431414068
+        },
+        {
+          "state_id": "stable.stable_medium.g0_1.c0",
+          "p": 0.11076273710600153
+        },
+        {
+          "state_id": "stable.stable_weak.g2_3.c0",
+          "p": 0.05112873961275068
+        },
+        {
+          "state_id": "stable.stable_weak.g4_5.c0",
+          "p": 0.026479278042965515
+        }
+      ],
+      "transition_entropy": 1.2437238102796868,
+      "node_score": 0.8396759,
+      "hot": {
+        "flag": 1,
+        "fresh": 0,
+        "medium": 1,
+        "threshold": 0
+      }
+    },
+    {
+      "number": 23,
+      "base_type": "H",
+      "zone_type": "STABLE",
+      "zone_level": "medium",
+      "top_pairs": [
+        {
+          "n": 21,
+          "w": 0.6952407741125279
+        },
+        {
+          "n": 19,
+          "w": 0.6952407741125279
+        },
+        {
+          "n": 1,
+          "w": 0.6780898832395126
+        },
+        {
+          "n": 26,
+          "w": 0.49790908975031045
+        },
+        {
+          "n": 33,
+          "w": 0.4594451105079813
+        },
+        {
+          "n": 44,
+          "w": 0.3982531795663122
+        },
+        {
+          "n": 34,
+          "w": 0.34762038705626397
+        },
+        {
+          "n": 31,
+          "w": 0.34762038705626397
+        },
+        {
+          "n": 9,
+          "w": 0.34762038705626397
+        },
+        {
+          "n": 24,
+          "w": 0.34762038705626397
+        }
+      ],
+      "gap_last": 1,
+      "freq_10": 2,
+      "freq_30": 4,
+      "freq_60": 6,
+      "I60": 10,
+      "gap2_60": 2,
+      "pair_strength": 0.4666666686534881,
+      "triad_strength": 0.1000000014901161,
+      "glue_index": 0.4555555582046509,
+      "state_id": "stable.stable_medium.g0_1.c0",
+      "state_p_hit": 0.09117621819241252,
+      "state_lift": 0.8205859637317128,
+      "state_E_next": 0.117179955111402,
+      "state_id_next": "stable.stable_medium.g2_3.c0",
+      "state_next_p": 0.7757116164311234,
+      "transition_next_top": [
+        {
+          "state_id": "stable.stable_medium.g2_3.c0",
+          "p": 0.7757116164311234
+        },
+        {
+          "state_id": "stable.stable_medium.g0_1.c0",
+          "p": 0.08750147979965066
+        },
+        {
+          "state_id": "stable.stable_weak.g2_3.c0",
+          "p": 0.06762790962143679
+        },
+        {
+          "state_id": "stable.stable_strong.g2_3.c0",
+          "p": 0.04706979018124585
+        },
+        {
+          "state_id": "stable.stable_strong.g0_1.c0",
+          "p": 0.01215923190201541
+        }
+      ],
+      "transition_entropy": 0.7877560459662286,
+      "node_score": 0.56759834,
+      "hot": {
+        "flag": 1,
+        "fresh": 1,
+        "medium": 0,
+        "threshold": 0
+      }
+    },
+    {
+      "number": 30,
+      "base_type": "H",
+      "zone_type": "STABLE",
+      "zone_level": "strong",
+      "top_pairs": [
+        {
+          "n": 31,
+          "w": 0.6733398803670831
+        },
+        {
+          "n": 34,
+          "w": 0.6733398803670831
+        },
+        {
+          "n": 15,
+          "w": 0.6453374870115036
+        },
+        {
+          "n": 21,
+          "w": 0.44889325357805543
+        },
+        {
+          "n": 17,
+          "w": 0.43022499134100234
+        },
+        {
+          "n": 6,
+          "w": 0.43022499134100234
+        },
+        {
+          "n": 8,
+          "w": 0.4064938967212533
+        },
+        {
+          "n": 10,
+          "w": 0.4064938967212533
+        },
+        {
+          "n": 11,
+          "w": 0.4064938967212533
+        },
+        {
+          "n": 20,
+          "w": 0.4053045934212586
+        }
+      ],
+      "gap_last": 1,
+      "freq_10": 3,
+      "freq_30": 6,
+      "freq_60": 13,
+      "I60": 5,
+      "gap2_60": 4,
+      "pair_strength": 0.3666666746139526,
+      "triad_strength": 0.0833333358168602,
+      "glue_index": 0.3555555641651153,
+      "state_id": "stable.stable_strong.g0_1.c0",
+      "state_p_hit": 0.0420242080650769,
+      "state_lift": 0.37821787258569217,
+      "state_E_next": 0.11038378537127704,
+      "state_id_next": "stable.stable_strong.g2_3.c0",
+      "state_next_p": 0.6579225112431806,
+      "transition_next_top": [
+        {
+          "state_id": "stable.stable_strong.g2_3.c0",
+          "p": 0.6579225112431806
+        },
+        {
+          "state_id": "stable.stable_strong.g0_1.c0",
+          "p": 0.21940437677842417
+        },
+        {
+          "state_id": "stable.stable_medium.g2_3.c0",
+          "p": 0.09578683231903208
+        },
+        {
+          "state_id": "stable.stable_medium.g0_1.c0",
+          "p": 0.026886279659363202
+        }
+      ],
+      "transition_entropy": 0.9301572494048402,
+      "node_score": 0.0,
+      "hot": {
+        "flag": 1,
+        "fresh": 1,
+        "medium": 0,
+        "threshold": 0
+      }
+    },
+    {
+      "number": 32,
+      "base_type": "H",
+      "zone_type": "STABLE",
+      "zone_level": "medium",
+      "top_pairs": [
+        {
+          "n": 20,
+          "w": 1.0897361946477193
+        },
+        {
+          "n": 37,
+          "w": 1.0897361946477193
+        },
+        {
+          "n": 15,
+          "w": 0.9832620767292598
+        },
+        {
+          "n": 17,
+          "w": 0.9832620767292598
+        },
+        {
+          "n": 6,
+          "w": 0.9832620767292598
+        },
+        {
+          "n": 22,
+          "w": 0.8283592449659535
+        },
+        {
+          "n": 8,
+          "w": 0.8229410403512004
+        },
+        {
+          "n": 39,
+          "w": 0.7264907964318128
+        },
+        {
+          "n": 38,
+          "w": 0.7264907964318128
+        },
+        {
+          "n": 33,
+          "w": 0.552239496643969
+        }
+      ],
+      "gap_last": 4,
+      "freq_10": 2,
+      "freq_30": 4,
+      "freq_60": 11,
+      "I60": 6,
+      "gap2_60": 4,
+      "pair_strength": 0.4166666567325592,
+      "triad_strength": 0.1000000014901161,
+      "glue_index": 0.4055555462837219,
+      "state_id": "stable.stable_medium.g4_5.c0",
+      "state_p_hit": 0.13860624170901834,
+      "state_lift": 1.247456175381165,
+      "state_E_next": 0.11464510420556034,
+      "state_id_next": "stable.stable_medium.g4_5.c0",
+      "state_next_p": 0.3801481754368312,
+      "transition_next_top": [
+        {
+          "state_id": "stable.stable_medium.g4_5.c0",
+          "p": 0.38014817543683127
+        },
+        {
+          "state_id": "stable.stable_medium.g6_10.c0",
+          "p": 0.32970924071159013
+        },
+        {
+          "state_id": "stable.stable_medium.g0_1.c0",
+          "p": 0.14362646965838047
+        },
+        {
+          "state_id": "stable.stable_weak.g6_10.c0",
+          "p": 0.033024447051097104
+        },
+        {
+          "state_id": "stable.stable_strong.g4_5.c0",
+          "p": 0.031224990307289573
+        }
+      ],
+      "transition_entropy": 1.257776678945721,
+      "node_score": 0.9633714,
+      "hot": {
+        "flag": 1,
+        "fresh": 0,
+        "medium": 0,
+        "threshold": 1
+      }
+    },
+    {
+      "number": 40,
+      "base_type": "H",
+      "zone_type": "STABLE",
+      "zone_level": "weak",
+      "top_pairs": [
+        {
+          "n": 17,
+          "w": 0.8283592449659535
+        },
+        {
+          "n": 33,
+          "w": 0.8117091551425791
+        },
+        {
+          "n": 11,
+          "w": 0.5567597744425108
+        },
+        {
+          "n": 10,
+          "w": 0.5567597744425108
+        },
+        {
+          "n": 6,
+          "w": 0.552239496643969
+        },
+        {
+          "n": 26,
+          "w": 0.5288655922228807
+        },
+        {
+          "n": 22,
+          "w": 0.40585457757128957
+        },
+        {
+          "n": 28,
+          "w": 0.40585457757128957
+        },
+        {
+          "n": 30,
+          "w": 0.39219332441640126
+        },
+        {
+          "n": 5,
+          "w": 0.2656980163639677
+        }
+      ],
+      "gap_last": 11,
+      "freq_10": 0,
+      "freq_30": 3,
+      "freq_60": 7,
+      "I60": 9,
+      "gap2_60": 11,
+      "pair_strength": 0.4333333373069763,
+      "triad_strength": 0.1000000014901161,
+      "glue_index": 0.4000000059604645,
+      "state_id": "stable.stable_weak.g6_10.c0",
+      "state_p_hit": 0.09503724575049631,
+      "state_lift": 0.8553352117544668,
+      "state_E_next": 0.10005113455440441,
+      "state_id_next": "stable.stable_weak.g6_10.c0",
+      "state_next_p": 0.6717799665787879,
+      "transition_next_top": [
+        {
+          "state_id": "stable.stable_weak.g6_10.c0",
+          "p": 0.6717799665787879
+        },
+        {
+          "state_id": "stable.stable_weak.g0_1.c0",
+          "p": 0.11015600893076831
+        },
+        {
+          "state_id": "moderate.moderate_strong.g6_10.c0",
+          "p": 0.09652841965152015
+        },
+        {
+          "state_id": "stable.stable_medium.g6_10.c0",
+          "p": 0.07684286723086792
+        },
+        {
+          "state_id": "moderate.moderate_medium.g6_10.c0",
+          "p": 0.011884603281952474
+        }
+      ],
+      "transition_entropy": 0.9858513156546016,
+      "node_score": 0.43788016,
+      "hot": {
+        "flag": 0,
+        "fresh": 0,
+        "medium": 0,
+        "threshold": 0
+      }
+    }
+  ],
+  "meta": {
+    "topology": {
+      "top_pairs_window": 60,
+      "top_pairs_topk": 10,
+      "top_pairs_weighting": "cooc * (1+0.75*overlap(next_dist)) * (0.50+0.50*sqrt(lift_a*lift_b))"
+    },
+    "transition": {
+      "source": "models_lgb/transition_matrix.json",
+      "topk": 5
+    },
+    "stateprob": {
+      "source": "models_lgb/stateprob_table.json"
+    }
+  }
+}
