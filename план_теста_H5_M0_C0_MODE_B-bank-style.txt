@@ -1,0 +1,235 @@
+План теста MODE_B — bank-style multi-seed config search
+
+checkpoint: H5_M0_C0 / MODE_B / bank-search rebuild
+objective: найти для MODE_B повторяемые config-family через bank-style search, а не через runtime-ядра, и проверить, можно ли поднять первую рабочую response-group до устойчивого 4/5 без draw-specific patch.
+
+1. Что считаем неизменной базой
+активный carcass: H5_M0_C0
+активный режим: MODE_B
+detector не трогаем
+runtime остаётся signal-first / config-first
+runtime-источник сигналов = draw_metrics(T-1)
+carcass_Txxxx.json используем только как trace/diagnostic слой
+winners только post-compare
+optional assembly запрещён, пока не доказан ceiling чистого metrics-first слоя.
+2. Что именно тестируем сейчас
+
+Мы не пытаемся сразу закрыть весь MODE_B.
+Текущий тест решает одну задачу:
+
+проверить, существует ли внутри текущего whole-mode runtime повторяемая response-family, которая поднимается одним config-neighborhood;
+начать с бывшей группы 18x 3/5, но не принимать её заранее за готовую family;
+делить потом не по hit-ярлыку, а по повторяемой реакции на банк конфигов.
+
+Это соответствует правилам: сначала один активный режим, один активный repair-front, group-wide improvement обязателен, локальная удача не принимается за финал.
+
+3. Канонический runtime-path теста
+
+draw_metrics(T-1) -> stable pool -> mode-native ranking -> frontier -> 45-ticket portfolio -> compare -> carcass trace audit
+
+Где:
+
+stable pool = все числа type_name == stable
+ranking строится только сигналами метрик
+carcass нужен, чтобы понять, где потерялся winner-path: на ranking, frontier или retention.
+4. Главная смена метода поиска
+
+Прошлый быстрый подход был недостаточным:
+
+один seed,
+мало соседних проб,
+ранняя остановка.
+
+Новый подход:
+
+несколько seed-линий сразу
+у каждой линии собственная серия итераций
+сохраняется не один “лучший конфиг”, а банк shortlist-кандидатов
+потом анализируется, какие draw стабильно улучшаются на близких конфигурациях.
+
+Логика здесь простая: раз один и тот же draw уже давал разные 5/5 в разных параметрических зонах, то искать надо по нескольким линиям, а не вокруг одной точки.
+
+5. Какие параметры крутим
+Основной ring — обязателен
+
+Это первый слой, строго в рамках текущего runtime-стандарта:
+
+theta
+adaptive_weights
+anti_lip
+cooldown_rate
+entropy_limit
+alpha_spike при необходимости.
+Второй ring — bank-inspired, только если реально используется кодом
+
+После primary-ring ceiling разрешается отдельно открыть:
+
+spread
+bias_recent
+overlap/overlap_soft_cap
+усиление STATEP внутри adaptive_weights, если этот канал реально участвует в текущем ранжировании.
+
+Это не новая архитектура, а расширение search-space после честного первичного прохода. Основание есть в старом банке: сильные конфиги там различаются не только по theta, но и по spread, bias_recent, STATEP, alpha_spike.
+
+6. Seed-bank, с которого стартует поиск
+
+Стартуем не с одной точки, а минимум с 6 seed-линий:
+
+BASE seed — текущий whole-mode baseline
+LOW_THETA_GLUE — низкий theta, усиленный GLUE, умеренный STATEP
+STATEP_NODE — средний theta, повышенные STATEP + NODE
+PAIR_TRIAD — усиленные PAIRdeg + TRIADdeg, более жёсткий ranking
+DIVERSITY — выше anti_lip + cooldown_rate + entropy_limit
+CONCENTRATED_SPIKE — ниже entropy, выше alpha_spike, tighter frontier
+
+Это не случайные варианты, а осмысленные стартовые линии, чтобы проверить разные типы winner-path.
+
+7. Как именно идёт поиск по каждой seed-линии
+Этап A. Coarse bank pass
+
+По каждой seed-линии:
+
+20–30 итераций
+только один пакет меняется за раз
+результат сохраняется в shortlist, даже если он не лучший по общему universe.
+Этап B. Neighbor pass
+
+Для каждого сильного shortlist-кандидата:
+
+12–20 соседних конфигов
+меньший шаг
+проверка, жив ли результат в соседстве.
+
+Если результат жив только в одной точке — это подозрительный lucky patch.
+
+Этап C. Response clustering
+
+После банка прогонов не сразу выбираем “общий лучший конфиг”, а строим 3 карты:
+
+какие draw улучшаются вместе;
+какие draw деградируют вместе;
+на каком этапе у них общий defect: ranking / frontier / retention.
+Этап D. Cohort confirmation
+
+Только после этого можно сказать:
+
+это не просто 4 удачных draw,
+а настоящая config-family.
+8. Шаги и порядок мутаций
+Пакет 1
+
+theta + entropy_limit
+Лечит:
+
+over-random
+over-dense
+распад frontier
+Пакет 2
+
+anti_lip + cooldown_rate
+Лечит:
+
+залипание одного пути
+плохую жизнь reserve/echo линий
+раннее вымывание сильных кандидатов
+Пакет 3
+
+adaptive_weights
+Лечит:
+
+плохой порядок stable ranking
+недооценку GLUE, PAIRdeg, TRIADdeg, NODE, STATEP
+Пакет 4
+
+alpha_spike
+Лечит:
+
+случаи, где strongest path виден, но не проходит в final portfolio
+Пакет 5
+
+spread + bias_recent + overlap
+Открывается только после честного primary-ring search и только если код реально использует эти параметры.
+
+9. Какой шаг считаем достаточным
+
+По каждой seed-линии тест не считается завершённым, пока не выполнено всё сразу:
+
+есть coarse pass
+есть neighbor pass
+есть shortlist
+есть response-map по draw
+есть carcass/trace audit хотя бы по улучшившимся и по деградировавшим draw.
+
+То есть “покрутил 2–3 соседние точки и сделал вывод” больше не допускается.
+
+10. Как оценивается кандидат-конфиг
+
+Лексикографически:
+
+больше 4/5+
+меньше 2/5
+больше 3/5+
+выше средний hit
+меньше регрессий по сильным draw
+лучше стабильность в соседстве параметров
+
+То есть один красивый 5/5 не закрывает конфиг. Это прямо совпадает с текущим проектным правилом: одиночный сильный hit не считается доказательством закрытия.
+
+11. Когда можно выделять отдельную config-family
+
+Только если одновременно:
+
+минимум 5 draw держатся на одном config-neighborhood
+у них общий trace-shape
+конфиг живёт не в одной точке
+нет draw-specific patch
+regression на остальном MODE_B не рушится.
+
+4 draw — provisional.
+2–3 draw — только exploratory signal, не family.
+
+12. Что делаем после первой принятой family
+
+После CONFIG_1:
+
+выделяем этот cohort
+стабилизируем его на 4/5
+потом точечно пробуем довести до 5/5
+возвращаемся к оставшемуся хвосту
+строим CONFIG_2 тем же bank-style протоколом.
+13. Когда вводить квоты внутри 45 комбинаций
+
+Квоты по config-family вводятся не заранее, а только после доказательства cohort.
+
+Порядок:
+
+сначала доказать, что CONFIG_1 реально покрывает >=5 draw
+потом дать ей долю внутри 45 билетов
+затем проверить whole-mode regression на всех 30 draw
+только после этого добавлять CONFIG_2 и перераспределять 45-комбинационный портфель.
+
+То есть квоты — это уже слой portfolio allocation, а не способ искусственно доказать family.
+
+14. Что считается blocker
+
+Честный blocker фиксируется, если:
+
+bank-search пройден по всем seed-линиям,
+neighbor stability проверена,
+winners стабильно сидят в stable/frontier,
+рост не держится группой,
+улучшение распадается на одиночные lucky patches.
+
+Только после этого можно говорить, что ceiling именно в текущем metrics-first слое.
+
+15. Что должно выйти на выходе цикла
+обновлённый h5_carcass_config.py
+seed-bank spec
+shortlist report по всем линиям
+response-cluster report
+cohort report (CONFIG_1, CONFIG_2, ...)
+whole-mode regression report
+release decision
+16. Короткая формула
+
+MODE_B -> stable pool -> baseline defect map -> multi-seed bank search -> shortlist -> neighbor stability -> response clustering -> accepted cohort (>=5) -> 4/5 stabilisation -> 5/5 point repair -> quota allocation inside 45 -> next cohort
